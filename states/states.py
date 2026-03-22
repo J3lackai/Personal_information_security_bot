@@ -3,6 +3,7 @@ from aiogram.fsm.state import StatesGroup, State
 
 class StartSG(StatesGroup):
     main_menu = State()
+    about_bot = State()
 
 
 class ToolSG(StatesGroup):
@@ -18,6 +19,7 @@ class ToolSG(StatesGroup):
 
 class GuideSG(StatesGroup):
     menu = State()
+    answer = State()
 
 
 class AISG(StatesGroup):

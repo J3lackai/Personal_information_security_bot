@@ -1,4 +1,4 @@
-from .guide import guide
+from .guides import guides
 from .about_bot import about
 
-__all__ = ["guide", "about"]
+__all__ = ["guides", "about"]

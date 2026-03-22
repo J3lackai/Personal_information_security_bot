@@ -1,14 +1,14 @@
 from aiogram_dialog import Dialog, Window
 from aiogram_dialog.widgets.text import Const
-from aiogram_dialog.widgets.kbd import Row, Column, Group, Url, Start, Button
+from aiogram_dialog.widgets.kbd import Row, Column, Group, Url, Start, Next, Back
 from states import StartSG, ToolSG, GuideSG, AISG
-from handlers import about_bot
+from lexicon import about
 
 start_dialog = Dialog(
     Window(
         Const("Главное меню:"),
         Group(
-            Button(text=Const("Что делает бот?"), id="menu_help", on_click=about_bot),
+            Next(text=Const("Что делает бот?"), id="menu_help"),
             Row(
                 Start(text=Const("Инструменты"), id="menu_tool", state=ToolSG.menu),
                 Start(text=Const("Справочник"), id="menu_guide", state=GuideSG.menu),
@@ -27,5 +27,10 @@ start_dialog = Dialog(
             ),
         ),
         state=StartSG.main_menu,
+    ),
+    Window(
+        Const(text=about),
+        Back(Const("🔙 Назад"), id="menu_back"),
+        state=StartSG.about_bot,
     ),
 )

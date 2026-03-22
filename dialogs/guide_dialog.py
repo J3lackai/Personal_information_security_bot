@@ -1,6 +1,6 @@
 from aiogram_dialog import Dialog, Window
 from aiogram_dialog.widgets.text import Const, Format
-from aiogram_dialog.widgets.kbd import Start, Column, Select
+from aiogram_dialog.widgets.kbd import Start, Column, Select, Back
 from states import GuideSG, StartSG
 from getters import guide_getter
 from handlers import on_guide_select
@@ -20,5 +20,11 @@ guide_dialog = Dialog(
         Start(Const("🔙 Назад"), state=StartSG.main_menu, id="guides_start"),
         state=GuideSG.menu,
         getter=guide_getter,
+    ),
+    # показ ответа
+    Window(
+        Format("{dialog_data[answer]}"),
+        Back(Const("🔙 К темам")),
+        state=GuideSG.answer,
     ),
 )

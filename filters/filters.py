@@ -1,9 +1,5 @@
 from aiogram.filters import BaseFilter
 from aiogram.types import CallbackQuery, Message
-from psycopg import AsyncConnection
-
-from enums import UserRole
-from database import get_user_role
 
 
 class LocaleFilter(BaseFilter):
